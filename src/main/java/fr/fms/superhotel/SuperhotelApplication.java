@@ -2,12 +2,17 @@ package fr.fms.superhotel;
 
 import fr.fms.superhotel.dao.CityRepository;
 import fr.fms.superhotel.dao.HotelRepository;
+import fr.fms.superhotel.entities.AppRole;
+import fr.fms.superhotel.entities.AppUser;
 import fr.fms.superhotel.entities.City;
 import fr.fms.superhotel.entities.Hotel;
+import fr.fms.superhotel.service.AccountServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.ArrayList;
 
 @SpringBootApplication
 public class SuperhotelApplication implements CommandLineRunner {
@@ -18,6 +23,9 @@ public class SuperhotelApplication implements CommandLineRunner {
 	@Autowired
 	private CityRepository cityRepository;
 
+	@Autowired
+	AccountServiceImpl accountService;
+
 	public static void main(String[] args) {
 		SpringApplication.run(SuperhotelApplication.class, args);
 	}
@@ -25,6 +33,7 @@ public class SuperhotelApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		//generateData();
+		generateUserRoles();
 	}
 
 	private void generateData(){
@@ -71,5 +80,15 @@ public class SuperhotelApplication implements CommandLineRunner {
 		hotelRepository.save(novotel);
 		hotelRepository.save(molitor);
 		hotelRepository.save(luma);
+	}
+
+	private void generateUserRoles(){
+		accountService.saveUser(new AppUser(null, "fred2024", "fmsacademy", new ArrayList<>()));
+		accountService.saveUser(new AppUser(null, "alejandra", "1234", new ArrayList<>()));
+		accountService.saveRole(new AppRole(null, "ADMIN"));
+		accountService.saveRole(new AppRole(null, "MANAGER"));
+		accountService.addRoleToUser("fred2024", "ADMIN");
+		accountService.addRoleToUser("fred2024", "MANAGER");
+		accountService.addRoleToUser("alejandra", "MANAGER");
 	}
 }
