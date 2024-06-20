@@ -33,7 +33,7 @@ public class SuperhotelApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		//generateData();
-		generateUserRoles();
+		//generateUserRoles();
 	}
 
 	private void generateData(){
