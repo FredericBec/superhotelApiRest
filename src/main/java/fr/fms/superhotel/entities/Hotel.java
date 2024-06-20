@@ -1,5 +1,6 @@
 package fr.fms.superhotel.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,5 +23,6 @@ public class Hotel {
     private String photo;
 
     @ManyToOne
+    @JsonIgnoreProperties(value = "hotels")
     private City city;
 }

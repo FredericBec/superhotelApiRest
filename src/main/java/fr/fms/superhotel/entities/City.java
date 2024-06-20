@@ -16,7 +16,7 @@ public class City {
 
     private String name;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "city")
+    @ToString.Exclude
     private Collection<Hotel> hotels;
 }
