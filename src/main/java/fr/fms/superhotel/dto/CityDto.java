@@ -1,14 +1,11 @@
 package fr.fms.superhotel.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @Builder
-@AllArgsConstructor
+@AllArgsConstructor @NoArgsConstructor
 public class CityDto {
 
     private String name;
