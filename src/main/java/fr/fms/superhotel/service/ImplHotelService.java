@@ -61,6 +61,6 @@ public class ImplHotelService implements IHotelService{
 
     @Override
     public Optional<City> getCityById(Long id) {
-        return Optional.empty();
+        return cityRepository.findById(id);
     }
 }
