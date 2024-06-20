@@ -13,6 +13,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @CrossOrigin("*")
 @RestController
@@ -42,6 +43,18 @@ public class CityController {
                 .buildAndExpand(city.getId())
                 .toUri();
         return ResponseEntity.created(location).build();
+    }
+
+    @PutMapping("/cities/{id}")
+    public ResponseEntity<City> updateCity(@PathVariable("id") Long id, @RequestBody CityDto cityDto){
+        Optional<City> optional = hotelService.getCityById(id);
+        if(optional.isPresent()){
+            City city = optional.get();
+            city.setName(cityDto.getName());
+            hotelService.saveCity(city);
+            return ResponseEntity.ok(city);
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/cities/{id}")
