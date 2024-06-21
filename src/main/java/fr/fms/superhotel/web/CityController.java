@@ -31,6 +31,14 @@ public class CityController {
         return hotelService.getCities();
     }
 
+    /**
+     * save city
+     *
+     * @param cityDto cityDto
+     * @return {@link ResponseEntity}
+     * @see ResponseEntity
+     * @see City
+     */
     @PostMapping("/cities")
     public ResponseEntity<City> saveCity(@RequestBody CityDto cityDto){
         City city = hotelService.saveCity(cityMapper.mapToEntity(cityDto));
@@ -45,6 +53,15 @@ public class CityController {
         return ResponseEntity.created(location).build();
     }
 
+    /**
+     * update city
+     *
+     * @param id de la ville
+     * @param cityDto entité dto
+     * @return status 200 ou ville non trouvé
+     * @see ResponseEntity
+     * @see City
+     */
     @PutMapping("/cities/{id}")
     public ResponseEntity<City> updateCity(@PathVariable("id") Long id, @RequestBody CityDto cityDto){
         Optional<City> optional = hotelService.getCityById(id);
