@@ -2,6 +2,7 @@ package fr.fms.superhotel.dto;
 
 
 import fr.fms.superhotel.entities.City;
+import fr.fms.superhotel.entities.HotelManager;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,4 +22,5 @@ public class HotelDto {
     private double price;
     private String photo;
     private City city;
+    private HotelManager hotelManager;
 }

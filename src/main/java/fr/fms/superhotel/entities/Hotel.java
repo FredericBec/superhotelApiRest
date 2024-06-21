@@ -25,4 +25,8 @@ public class Hotel {
     @ManyToOne
     @JsonIgnoreProperties(value = "hotels")
     private City city;
+
+    @ManyToOne
+    @JsonIgnoreProperties(value = "hotels")
+    private HotelManager hotelManager;
 }
