@@ -9,4 +9,5 @@ public interface HotelRepository extends JpaRepository<Hotel, Long> {
 
     List<Hotel> findAllByOrderByCityName();
     List<Hotel> findByCityId(Long id);
+    List<Hotel> findByHotelManagerId(Long id);
 }

@@ -40,6 +40,11 @@ public class HotelController {
         return implHotelService.getHotelsByCity(id);
     }
 
+    @GetMapping("/hotels/hotelManager/{id}")
+    public List<Hotel> hotelsByHotelManager(@PathVariable("id") Long id){
+        return implHotelService.getHotelsByHotelManager(id);
+    }
+
     @PostMapping("/hotels")
     public ResponseEntity<Hotel> saveHotel(@RequestBody HotelDto hotelDto){
         Hotel hotel = implHotelService.saveHotel(hotelMapper.mapToEntity(hotelDto));
