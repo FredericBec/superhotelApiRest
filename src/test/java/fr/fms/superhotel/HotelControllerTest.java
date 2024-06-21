@@ -76,8 +76,8 @@ class HotelControllerTest {
     void testSaveHotel() throws Exception{
         ObjectMapper objectMapper = new ObjectMapper();
 
-        HotelDto hotelDto = new HotelDto("The palm", "Dubai", "0123456789", 5, 360, 345, "dubai.png", null);
-        Hotel hotel = new Hotel(null, "The palm", "Dubai", "0123456789", 5, 360, 345, "dubai.png", null);
+        HotelDto hotelDto = new HotelDto("The palm", "Dubai", "0123456789", 5, 360, 345, "dubai.png", null, null);
+        Hotel hotel = new Hotel(null, "The palm", "Dubai", "0123456789", 5, 360, 345, "dubai.png", null, null);
 
         String requestContent = objectMapper.writeValueAsString(hotelDto);
 
@@ -104,4 +104,5 @@ class HotelControllerTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
+
 }
