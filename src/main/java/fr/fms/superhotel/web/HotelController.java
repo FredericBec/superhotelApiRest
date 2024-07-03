@@ -73,6 +73,7 @@ public class HotelController {
             hotel.setPrice(hotelDto.getPrice());
             hotel.setPhoto(hotelDto.getPhoto());
             hotel.setCity(hotelDto.getCity());
+            hotel.setHotelManager(hotelDto.getHotelManager());
             implHotelService.saveHotel(hotel);
             return ResponseEntity.ok(hotel);
         }
@@ -97,7 +98,7 @@ public class HotelController {
         byte[] file = null;
         try{
             Hotel hotel = implHotelService.readHotel(id).get();
-            if(hotel.getPhoto() == null) hotel.setPhoto("unknown.png");
+            if(hotel.getPhoto() == null) hotel.setPhoto("unknown.jpg");
             file = Files.readAllBytes(Paths.get(System.getProperty("user.home") + "/Pictures/hotels/" + hotel.getPhoto()));
         }catch (Exception e){
             //log.error("problème avec download de l'image correspondant à l'hotel d'id : {}", id);
