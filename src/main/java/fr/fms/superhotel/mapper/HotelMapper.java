@@ -18,6 +18,7 @@ public class HotelMapper {
                 .price(hotelDto.getPrice())
                 .photo(hotelDto.getPhoto())
                 .city(hotelDto.getCity())
+                .hotelManager(hotelDto.getHotelManager())
                 .build();
 
         return hotel;
