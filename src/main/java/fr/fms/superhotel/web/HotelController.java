@@ -35,6 +35,11 @@ public class HotelController {
         return implHotelService.getHotels();
     }
 
+    @GetMapping("/hotels/")
+    public List<Hotel> searchHotels(@RequestParam(name = "keyword", defaultValue = "") String kw){
+        return implHotelService.getHotelsByName(kw);
+    }
+
     @GetMapping("/hotels/city/{id}")
     public List<Hotel> hotelsByCity(@PathVariable("id") Long id){
         return implHotelService.getHotelsByCity(id);

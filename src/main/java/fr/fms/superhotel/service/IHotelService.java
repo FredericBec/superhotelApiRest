@@ -11,6 +11,7 @@ public interface IHotelService {
     List<Hotel> getHotels();
     List<Hotel> getHotelsByCity(Long cityId);
     List<Hotel> getHotelsByHotelManager(Long hotelManagerId);
+    List<Hotel> getHotelsByName(String name);
     Hotel saveHotel(Hotel hotel);
     void deleteHotel(Long id);
     Optional<Hotel> readHotel(Long id);

@@ -40,6 +40,11 @@ public class ImplHotelService implements IHotelService{
     }
 
     @Override
+    public List<Hotel> getHotelsByName(String name) {
+        return hotelRepository.findByNameContains(name);
+    }
+
+    @Override
     public Hotel saveHotel(Hotel hotel) {
         return hotelRepository.save(hotel);
     }
