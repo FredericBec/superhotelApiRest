@@ -1,10 +1,7 @@
 package fr.fms.superhotel;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import fr.fms.superhotel.dao.CityRepository;
-import fr.fms.superhotel.dao.HotelRepository;
-import fr.fms.superhotel.dao.RoleRepository;
-import fr.fms.superhotel.dao.UserRepository;
+import fr.fms.superhotel.dao.*;
 import fr.fms.superhotel.dto.HotelDto;
 import fr.fms.superhotel.entities.Hotel;
 import fr.fms.superhotel.mapper.HotelMapper;
@@ -62,6 +59,9 @@ class HotelControllerTest {
 
     @MockBean
     private RoleRepository roleRepository;
+
+    @MockBean
+    private HotelManagerRepository hotelManagerRepository;
 
     @MockBean
     private BCryptPasswordEncoder bCryptPasswordEncoder;
