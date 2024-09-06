@@ -12,6 +12,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.ArrayList;
 
+import static fr.fms.superhotel.utils.constants.ADMIN;
+import static fr.fms.superhotel.utils.constants.MANAGER;
+
 @SpringBootApplication
 public class SuperhotelApplication implements CommandLineRunner {
 
@@ -99,10 +102,10 @@ public class SuperhotelApplication implements CommandLineRunner {
 	private void generateUserRoles(){
 		accountService.saveUser(new AppUser(null, "fred2024", "fmsacademy", new ArrayList<>()));
 		accountService.saveUser(new AppUser(null, "alejandra", "1234", new ArrayList<>()));
-		accountService.saveRole(new AppRole(null, "ADMIN"));
-		accountService.saveRole(new AppRole(null, "MANAGER"));
-		accountService.addRoleToUser("fred2024", "ADMIN");
-		accountService.addRoleToUser("fred2024", "MANAGER");
-		accountService.addRoleToUser("alejandra", "MANAGER");
+		accountService.saveRole(new AppRole(null, ADMIN));
+		accountService.saveRole(new AppRole(null, MANAGER));
+		accountService.addRoleToUser("fred2024", ADMIN);
+		accountService.addRoleToUser("fred2024", MANAGER);
+		accountService.addRoleToUser("alejandra", MANAGER);
 	}
 }
